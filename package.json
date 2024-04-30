@@ -2,7 +2,9 @@
   "name": "dp-vs-code-rn-fast-file-generator",
   "displayName": "react-native-files-generator",
   "description": "This extension simplifies the process of creating new screens and views for React Native applications. It allows you to quickly generate boilerplate code for a screen and its corresponding view, including the necessary imports and basic structure.",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "publisher": "DiegoPlata",
+  "icon": "./icon.jpg",
   "engines": {
     "vscode": "^1.86.1"
   },
