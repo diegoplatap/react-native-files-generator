@@ -66,8 +66,12 @@ export function activate(context: vscode.ExtensionContext) {
       }
 
       // Construct the folder paths
-      const screenFolder = path.join(uri.fsPath, 'screens', finalSubfolder)
-      const viewFolder = path.join(uri.fsPath, 'views', finalSubfolder)
+      const screenFolder = path.join(
+        uri.fsPath,
+        'screens',
+        finalSubfolder || ''
+      )
+      const viewFolder = path.join(uri.fsPath, 'views', finalSubfolder || '')
 
       // Create the subfolders if they don't exist
       if (!fs.existsSync(screenFolder)) {
@@ -113,8 +117,11 @@ export function activate(context: vscode.ExtensionContext) {
         : null
 
       // Create a relative path from the workspace root
-      const relativeScreenPath = path.relative(workspaceRoot, screenFilePath)
-      const relativeViewPath = path.relative(workspaceRoot, viewFilePath)
+      const relativeScreenPath = path.relative(
+        workspaceRoot || '',
+        screenFilePath
+      )
+      const relativeViewPath = path.relative(workspaceRoot || '', viewFilePath)
 
       // Transform the paths to the desired format
       const transformedScreenPath = transformPath(relativeScreenPath)
@@ -164,9 +171,9 @@ export const ${name}View = () => {
       // Show a message to the user
       vscode.window.showInformationMessage(
         `Files created: ${path.join(
-          finalSubfolder,
+          finalSubfolder || '',
           `${name}Screen.tsx`
-        )} and ${path.join(finalSubfolder, `${name}View.tsx`)}`
+        )} and ${path.join(finalSubfolder || '', `${name}View.tsx`)}`
       )
     }
   )
