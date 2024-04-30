@@ -49,7 +49,7 @@ export function activate(context: vscode.ExtensionContext) {
         return
       }
 
-      let finalSubfolder = ''
+      let finalSubfolder
       if (subfolder === 'Create new subfolder...') {
         // Prompt user to enter a new subfolder name
         finalSubfolder = await vscode.window.showInputBox({
